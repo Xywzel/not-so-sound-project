@@ -67,7 +67,7 @@ DEPFLAGS := -MMD -MF
 # Dependency list generation options
 LIBCFLAGS := -Isrc
 
-COMPFLAGS := $(CPPFLAGS) -c $(WARNINGS) $(DFLAGS) $(LIBCFLAGS)
+COMPFLAGS := $(CFLAGS) -c $(WARNINGS) $(DFLAGS) $(LIBCFLAGS)
 
 # Linker options
 LFLAGS := -Wl,-rpath -Wl,/usr/bin/lib

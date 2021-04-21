@@ -6,6 +6,12 @@
 
 int syna(const struct Arguments* const arguments)
 {
-	printf("Syna playing something from %s", arguments->options_file);
+	if (arguments->options_file)
+		printf("Syna playing using settings from %s", arguments->options_file);
+	// Read the options file here
+
+	// Find audio capablities of the system
+	
+
 	return 0;
 }

@@ -5,10 +5,7 @@
 int main(int argc, char *argv[])
 {
 	struct Arguments arguments;
-	if(argc > 1)
-	{
-		parse_arguments(&arguments, argc, argv);
-	}
+	parse_arguments(&arguments, argc, argv);
 
 	switch(arguments.mode)
 	{

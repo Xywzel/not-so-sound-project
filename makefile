@@ -49,6 +49,10 @@ GLFW_LFLAGS = $(shell pkg-config --static --libs glfw3)
 # OpenGL, might need to swap for loader
 GL_CFLAGS = $(shell pkg-config --cflags gl)
 GL_LFLAGS = $(shell pkg-config --static --libs gl)
+# PortAudio uses Alsa
+PORTAUDIO = -lportaudio
+ALSA_CFLAGS = $(shell pkg-config --cflags alsa)
+ALSA_LFLAGS = $(shell pkg-config --static --libs alsa)
 
 # Compiler options
 CFLAGS := -std=c11
@@ -61,17 +65,17 @@ DFLAGS := -g -ggdb -DDEBUG
 # Debug flags fror debug build
 RFLAGS := -oN -DRELEASE
 # Optimisation flags for release build
-IFLAGS := -Isrc
+IFLAGS := -Isrc -Iinc
 # Where to look for include files
 DEPFLAGS := -MMD -MF
 # Dependency list generation options
-LIBCFLAGS := -Isrc
+LIBCFLAGS := -Isrc -Iinc
 
 COMPFLAGS := $(CFLAGS) -c $(WARNINGS) $(DFLAGS) $(LIBCFLAGS)
 
 # Linker options
-LFLAGS := -Wl,-rpath -Wl,/usr/bin/lib
-LIBLFLAGS :=
+LFLAGS := -Wl,-rpath -Wl,/usr/bin/lib -Llib
+LIBLFLAGS := $(PORTAUDIO) $(ALSA_LFLAGS)
 LINKFLAGS := $(LFLAGS) $(LIBLFLAGS)
 
 # First target is the default one

@@ -15,4 +15,6 @@ Currently implemented projects:
 - pragma once - pragma once is used instead of header guards,
   so compiler and preprocessor used need to handle it correctly
 - [PortAudio](http://portaudio.com) is used as abstraction for
-  sound devices and platform audio functionality.
+  sound devices and platform audio functionality. PortAudio used
+  in development is build and linked with ALSA, but should work
+  with other underlaying sound interfaces as well.

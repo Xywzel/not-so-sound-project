@@ -81,6 +81,13 @@ int syna(const struct Arguments* const arguments)
 
 	while(1){};
 
+	err = Pa_StopStream(stream);
+	if (err != paNoError)
+	{
+		printf("PaError in Stop Stream: %s \n", Pa_GetErrorText(err));
+		return 1;
+	}
+
 	Pa_Terminate();
 	return 0;
 }
